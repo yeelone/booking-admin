@@ -1,0 +1,39 @@
+<div class="user-form-container">
+
+  <mat-form-field appearance="outline">
+    <mat-label>Username</mat-label>
+    <input matInput [(ngModel)]="source.user.username">
+    <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+  </mat-form-field>
+  
+  <mat-form-field appearance="outline">
+      <mat-label>Email</mat-label>
+      <input matInput [(ngModel)]="source.user.email">
+      <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+      <mat-label>Picture</mat-label>
+      <img src="{{data.user.picture}}" alt="" width="200">
+      <input disabled  matInput [(ngModel)]="source.user.picture" style="display: none;">
+      <mat-icon matSuffix>photo</mat-icon>
+  </mat-form-field>
+  
+  <app-uploader path="avatar" (change)="onUpload($event)"></app-uploader>
+
+  <div class="action-bar">
+    <button mat-button  (click)="onNoClick()">close</button>
+    <ng-container *ngIf="source.user.id;else other_content">
+      <button mat-button color="accent" (click)="update()">update</button>
+    </ng-container>
+    <ng-template #other_content>
+      <button mat-button color="accent" (click)="create()">create</button>
+    </ng-template>
+  </div>
+  <p *ngIf="done">{{returnMsg}}</p>
+    <mat-progress-spinner
+    *ngIf="loading"
+    class="loading-spinner"
+    [color]="'primary'"
+    [mode]="'indeterminate'">
+  </mat-progress-spinner>
+</div>

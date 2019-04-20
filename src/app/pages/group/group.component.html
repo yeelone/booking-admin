@@ -1,0 +1,26 @@
+<div class="group-container mat-elevation-z8">
+  <div *ngIf="isLoadingResults">
+      <mat-progress-bar mode="query" ></mat-progress-bar>
+  </div>
+
+  <div>
+      <ul class="org-list">
+          <li *ngFor="let g of groups ; let i = index " >
+              <mat-card class="org-card" *ngIf="isAdmin(g)">
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title> {{ g.name }} </mat-card-title>
+                  <mat-card-subtitle> {{ g.adminInfo.username }} </mat-card-subtitle>
+                </mat-card-header>
+                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                <mat-card-actions>
+                  <a mat-raised-button color="primary" href="org/{{g.id}}/users" *appCanAccess="['QUERY_USER_INFO']">人员管理</a>
+                  <a mat-raised-button color="primary" href="org/{{g.id}}/canteens" *appCanAccess="['QUERY_CANTEEN']">食堂管理</a>
+                </mat-card-actions>
+              </mat-card>
+          </li>
+        </ul>
+   
+  </div>
+
+</div>

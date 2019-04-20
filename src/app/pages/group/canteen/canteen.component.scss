@@ -1,0 +1,41 @@
+.org-card {
+    width: 200px;
+}
+
+.main-container {
+    display: flex;
+    width: 100%;
+    height: 100%;
+
+    .left-side{
+      margin: 20px;
+    }
+
+    .table-container{
+      flex: 1;
+      padding: 20px;
+    }
+
+    .add-btn {
+        float: right ; 
+    }
+
+    .list {
+        list-style: none;
+
+        li{
+            width: 500px; 
+            padding: 20px;
+            float: left;
+
+            table {
+                td{
+                    width: 200px;
+                    border: 1px solid white;
+                    padding: 6px;
+                }
+            }
+        }
+    }
+}
+

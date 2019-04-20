@@ -1,0 +1,20 @@
+.container {
+    display: flex; 
+    width:80%; 
+    margin: 50px auto;
+
+    .table-container {
+        width: 500px;
+    
+        table{
+            width: 100%;
+        }
+    }
+
+    .user-container {
+        margin:20px;
+        min-height: 500px;
+    }
+
+}
+

@@ -1,0 +1,18 @@
+<div style="height: 10px">
+  <mat-progress-bar *ngIf="loading" mode="query" ></mat-progress-bar>
+</div>
+
+<div mat-dialog-content>
+  <p>
+    <span>{{source.canteen.name}}</span>
+    <img class="qrcode-img" src="{{baseUrl}}{{source.canteen.qrcode}}" alt="">
+  </p>
+  <p>
+    <button mat-raised-button color="primary" (click)="generate()">生成二维码 <mat-icon>create</mat-icon></button>
+  </p>
+  <p>保存二维码：右键选择图片存储为...</p>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="'true'" cdkFocusInitial>确定</button>
+</div>

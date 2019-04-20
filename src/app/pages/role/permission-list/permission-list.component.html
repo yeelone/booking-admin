@@ -1,0 +1,19 @@
+<div style="height: 10px">
+  <mat-progress-bar  *ngIf="isLoadingResults" mode="query" ></mat-progress-bar>
+</div>
+
+<div class="container">
+  <ul>
+    <li *ngFor="let moduleName of permissionModules;">
+        {{moduleName}}
+
+        <ul>
+          <li *ngFor="let perm of permissions.get(moduleName);let i = index; ">
+              <mat-checkbox class="example-margin" [checked]="perm.checked" (change)="onChange(moduleName, i)">{{ perm.name }}--{{ perm.resource }}</mat-checkbox> 
+          </li>
+        </ul>
+    </li>
+  </ul>
+
+  <button mat-raised-button color="accent" (click)="save()"> 提交 <mat-icon>add</mat-icon></button>
+</div>

@@ -1,0 +1,91 @@
+<div class="form-container">
+    <mat-form-field appearance="outline">
+        <mat-label>食堂名字</mat-label>
+        <input matInput [(ngModel)]="source.canteen.name">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>早餐时间 （6:30-9:00）
+          <span style="color:red" *ngIf="formatCheckErrorResult['breakfastTime']">
+            <strong>发生错误</strong>:必须符合格式
+          </span> 
+        </mat-label>
+        <input matInput [(ngModel)]="source.canteen.breakfastTime" (ngModelChange)="changeTimeRange($event,'breakfastTime')">
+        
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>早餐预订时间（7:00）
+            <span style="color:red" *ngIf="formatCheckErrorResult['bookingBreakfastDeadline']">
+                <strong>发生错误</strong>:必须符合格式
+              </span> 
+        </mat-label>
+        <input matInput [(ngModel)]="source.canteen.bookingBreakfastDeadline" (ngModelChange)="changeTimeFormat($event,'bookingBreakfastDeadline')">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>午餐时间（11:30-13:00）
+            <span style="color:red" *ngIf="formatCheckErrorResult['lunchTime']">
+                <strong>发生错误</strong>:必须符合格式
+              </span> 
+        </mat-label>
+        <input matInput [(ngModel)]="source.canteen.lunchTime" (ngModelChange)="changeTimeRange($event,'lunchTime')">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>午餐预订时间（9:00）
+            <span style="color:red" *ngIf="formatCheckErrorResult['bookingLunchDeadline']">
+                <strong>发生错误</strong>:必须符合格式
+              </span> 
+        </mat-label>
+        <input matInput [(ngModel)]="source.canteen.bookingLunchDeadline" (ngModelChange)="changeTimeFormat($event,'bookingLunchDeadline')">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>晚餐时间（15:30-20:00）
+            <span style="color:red" *ngIf="formatCheckErrorResult['dinnerTime']">
+                <strong>发生错误</strong>:必须符合格式
+              </span> 
+        </mat-label>
+        <input matInput [(ngModel)]="source.canteen.dinnerTime" (ngModelChange)="changeTimeRange($event,'dinnerTime')">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>晚餐预订时间（16:00）
+            <span style="color:red" *ngIf="formatCheckErrorResult['bookingDinnerDeadline']">
+                <strong>发生错误</strong>:必须符合格式
+              </span> 
+        </mat-label>
+        <input matInput [(ngModel)]="source.canteen.bookingDinnerDeadline" (ngModelChange)="changeTimeFormat($event,'bookingDinnerDeadline')">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+        <mat-label>可提交取消预订时间（2）小时</mat-label>
+        <input matInput [(ngModel)]="source.canteen.cancelTime">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+    </mat-form-field>
+
+    <div class="action-bar">
+      <button mat-button  (click)="onNoClick()">close</button>
+      <ng-container *ngIf="source.canteen.id;else other_content">
+        <button mat-button color="accent" (click)="update()">update</button>
+      </ng-container>
+      <ng-template #other_content>
+        <button mat-button color="accent" (click)="create()">create</button>
+      </ng-template>
+    </div>
+    <p *ngIf="done">{{returnMsg}}</p>
+      <mat-progress-spinner
+      *ngIf="loading"
+      class="loading-spinner"
+      [color]="'primary'"
+      [mode]="'indeterminate'">
+    </mat-progress-spinner>
+  </div>

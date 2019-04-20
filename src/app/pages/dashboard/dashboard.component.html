@@ -1,0 +1,51 @@
+<div class="container">
+  <div *ngIf="isLoadingResults">
+    <mat-progress-bar mode="query" ></mat-progress-bar>
+  </div>
+
+  <ng-container *ngIf="data">
+      
+
+      <mat-card class="card">
+          <mat-card-header>
+            <mat-card-title> <mat-icon>account_box</mat-icon>  机构信息汇总  </mat-card-title>
+            <mat-card-subtitle> 
+                <table>
+                    <tbody>
+                      <tr >
+                          <td>机构名称</td>
+                          <td>机构人数</td>
+                      </tr>
+                      <tr *ngFor="let org of data.orgInfo; let i = index ;">
+                        <td>
+                          {{org.name}}
+                        </td>
+                        <td>
+                          {{ org.userCount}}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </mat-card-subtitle>
+          </mat-card-header>
+      </mat-card>
+    
+        
+      <mat-card class="card">
+          <mat-card-header>
+            <mat-card-title>  <mat-icon>receipt</mat-icon> 餐票情况 </mat-card-title>
+            <mat-card-subtitle> 
+                <table>
+                    <tbody>
+                      <tr *ngFor="let record of data.ticketInfo; let i = index ;">
+                        <td colspan="2">{{record}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </mat-card-subtitle>
+          </mat-card-header>
+      </mat-card>
+      <p >当前登录人数 : {{ data.systemInfo.currentLoginCount}}人</p>
+  </ng-container>
+  
+</div>

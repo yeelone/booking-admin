@@ -1,19 +1,21 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav mode="side" opened class="main-sidenav"
-               [fixedInViewport]="'true'">
-               <ul>
-                  <li>
-                      <h2><a href="">Dashboard</a></h2>
-                    </li>
-                <li>
-                  <h2><a href="users">Users</a></h2>
-                </li>
-              </ul>
-  </mat-sidenav>
-  <mat-sidenav-content >
-      <p><button mat-icon-button (click)="sidenav.toggle()">
-          <mat-icon>list</mat-icon>
-      </button></p>
-      <router-outlet></router-outlet>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="main-container">
+
+
+<app-header  *ngIf="isLoggedIn" class="header-container"></app-header>
+
+<div class="router-container">
+  
+  <!-- <mat-sidenav #sidenav mode="side" opened class="main-sidenav"  *ngIf="showSidenav"
+      [fixedInViewport]="'true'">
+      
+  </mat-sidenav> -->
+  <router-outlet></router-outlet>
+  <!-- <mat-sidenav-content > -->
+      <!-- <button class="sidenav-btn" mat-icon-button (click)="toggle()" *ngIf="isLoggedIn" > -->
+        <!-- <mat-icon>list</mat-icon>
+      </button> -->
+      
+      
+  <!-- </mat-sidenav-content> -->
+</div>
+</div>

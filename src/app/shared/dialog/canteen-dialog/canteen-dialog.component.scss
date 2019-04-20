@@ -1,0 +1,11 @@
+.form-container{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    .action-bar{
+        width: 300px;
+        margin: auto;
+        text-align: center;
+    }
+}

@@ -1,0 +1,32 @@
+.main-container {
+    display: flex; 
+    flex-direction: column;
+    height: 100%;
+    
+    .header-container {
+        height: 64px;
+    }
+
+    .router-container {
+        flex:1 ; 
+        overflow: auto;
+        background-color: #303030;
+        padding: 30px;
+    }
+}
+
+
+.main-sidenav {
+
+    ul {
+        padding: 0 ; 
+        list-style: none ; 
+    }
+    
+     a {
+         color: white;
+         text-decoration: none ; 
+     }
+} 
+
+

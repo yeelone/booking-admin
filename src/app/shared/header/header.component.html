@@ -1,0 +1,28 @@
+<div class="header">
+  <mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <span>食 堂 报 餐 管 理 系 统——— Booking Management System</span>
+        <span class="example-fill-remaining-space"></span>
+        <span class="align-center"></span>
+        <div class="example-spacer">
+            <a mat-raised-button class="btn-yellow" href="">Dashboard</a>
+            <a mat-raised-button class="btn-yellow" href="users">用户管理</a>
+            <a mat-raised-button class="btn-yellow" href="role">角色管理</a>
+            <a mat-raised-button class="btn-yellow" href="org">机构管理</a>
+        </div>
+
+        <ng-container *ngIf="currentUser">
+            {{ currentUser.username }} 
+        </ng-container>
+        
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        
+        <mat-menu #menu="matMenu" class="profile-menu">
+          <button mat-menu-item (click)="openDialog()">修改密码</button>
+          <button mat-menu-item (click)="logout()">注销</button>
+        </mat-menu>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

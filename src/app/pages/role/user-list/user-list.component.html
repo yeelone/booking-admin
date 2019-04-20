@@ -1,0 +1,51 @@
+<div style="height: 10px">
+    <mat-progress-bar  *ngIf="isLoadingResults" mode="query" ></mat-progress-bar>
+</div>
+
+<div class="users-table-container">
+    <mat-form-field>
+        <mat-select placeholder="search type" [(value)]="selectedSearchType">
+          <mat-option *ngFor="let t of searchTypes" [value]="t.value">
+            {{t.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+    </mat-form-field>
+    <button mat-raised-button color="primary" (click)="openUserDialog()" *appCanAccess="['ADD_USERS_TO_ROLE']">关联<mat-icon>add</mat-icon></button>
+    <button mat-raised-button color="warn"  (click)="onRemoveUsers()" [disabled]="disableDelBtn" *appCanAccess="['REMOVE_USERS_FROM_ROLE']">
+        移除<mat-icon>delete</mat-icon>
+    </button>
+      
+  <table mat-table [dataSource]="dataSource" class="users-table"
+         matSort matSortActive="username" matSortDisableClear matSortDirection="desc">
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox (change)="$event ? masterToggle() : null"
+                      [checked]="selection.hasValue() && isAllSelected()"
+                      [indeterminate]="selection.hasValue() && !isAllSelected()">
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <mat-checkbox (click)="$event.stopPropagation()"
+                      (change)="$event ? singleChange(row)  : null"
+                      [checked]="selection.isSelected(row)">
+        </mat-checkbox>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="ID" >
+      <th mat-header-cell *matHeaderCellDef style="width:20px">ID</th>
+      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+    <ng-container matColumnDef="username">
+      <th mat-header-cell *matHeaderCellDef>username </th>
+       <td mat-cell *matCellDef="let element">{{element.username}}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [length]="resultsLength" [pageSizeOptions]="[10, 25, 100]"  showFirstLastButtons></mat-paginator>
+</div>

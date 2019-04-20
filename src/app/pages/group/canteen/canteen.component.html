@@ -1,0 +1,55 @@
+<div class="users-container mat-elevation-z8">
+    <div style="height: 10px">
+        <mat-progress-bar *ngIf="loading" mode="query" ></mat-progress-bar>
+    </div>
+
+    <div class="main-container">
+      <div class="left-side">
+          <mat-card class="org-card">
+              <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title> {{ group.name }} </mat-card-title>
+              </mat-card-header>
+              <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+              <mat-card-actions>
+                <a mat-raised-button href="org/{{group.id}}/users">员工管理</a>
+              </mat-card-actions>
+            </mat-card>
+      </div>
+
+      <div class="table-container">
+          <button mat-raised-button color="primary" class="add-btn" (click)="openEditDialog()">创建食堂 <mat-icon>add</mat-icon></button>
+            <div>
+              <ul class="list">
+                <li *ngFor="let c of canteens ">
+                    <mat-card >
+                        <mat-card-header>
+                          <div mat-card-avatar class="example-header-image"></div>
+                          <mat-card-title> {{ c.name }} </mat-card-title>
+                          <mat-card-subtitle> 
+                            <table>
+                              <tr><td class="level">名字</td><td class="content">{{c.name}}</td></tr>
+                              <tr><td class="level">早餐时间</td><td class="content">{{c.breakfastTime}}</td></tr>
+                              <tr><td class="level">早餐预订时间</td><td class="content">{{c.bookingBreakfastDeadline}}</td></tr>
+                              <tr><td class="level">午餐时间</td><td class="content">{{c.lunchTime}}</td></tr>
+                              <tr><td class="level">午餐预订时间</td><td class="content">{{c.bookingLunchDeadline}}</td></tr>
+                              <tr><td class="level">晚餐时间</td><td class="content">{{c.dinnerTime}}</td></tr>
+                              <tr><td class="level">晚餐预订时间</td><td class="content">{{c.bookingDinnerDeadline}}</td></tr>
+                              <tr><td class="level">可提前多少小时取消预订</td><td class="content">{{c.cancelTime}}小时</td></tr>
+                            </table>
+
+                          </mat-card-subtitle>
+                        </mat-card-header>
+                        <mat-card-actions>
+                          <button mat-raised-button color="primary" (click)="openEditDialog(c)">更新 <mat-icon>update</mat-icon></button>
+                          <button mat-raised-button color="primary" (click)="openQrcodeDialog(c)">生成二维码 <mat-icon>create</mat-icon></button>
+                          <button mat-raised-button color="primary" (click)="openBookingDialog(c)">预订详情 <mat-icon>list</mat-icon></button>
+                          <button mat-raised-button color="warn" (click)="onDelete(c)">删除<mat-icon>delete</mat-icon></button>
+                        </mat-card-actions>
+                      </mat-card>
+                </li>
+              </ul>
+            </div>
+      </div>
+    </div>
+</div>

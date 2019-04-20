@@ -365,6 +365,11 @@
   resolved "http://registry.npm.taobao.org/@types/selenium-webdriver/download/@types/selenium-webdriver-3.0.15.tgz#024c24051c3798e9a0cf5cceb1c893140df1bc31"
   integrity sha1-AkwkBRw3mOmgz1zOsciTFA3xvDE=
 
+"@types/zen-observable@^0.8.0":
+  version "0.8.0"
+  resolved "http://registry.npm.taobao.org/@types/zen-observable/download/@types/zen-observable-0.8.0.tgz#8b63ab7f1aa5321248aad5ac890a485656dcea4d"
+  integrity sha1-i2OrfxqlMhJIqtWsiQpIVlbc6k0=
+
 "@webassemblyjs/ast@1.7.10":
   version "1.7.10"
   resolved "http://registry.npm.taobao.org/@webassemblyjs/ast/download/@webassemblyjs/ast-1.7.10.tgz#0cfc61d61286240b72fc522cb755613699eea40a"
@@ -682,6 +687,99 @@ anymatch@^2.0.0:
   dependencies:
     micromatch "^3.1.4"
     normalize-path "^2.1.1"
+
+apollo-angular-link-http-common@~1.6.0:
+  version "1.6.0"
+  resolved "http://registry.npm.taobao.org/apollo-angular-link-http-common/download/apollo-angular-link-http-common-1.6.0.tgz#9f0431c009f816fe3f577d7a7ebf7d748671ecac"
+  integrity sha1-nwQxwAn4Fv4/V316fr99dIZx7Kw=
+  dependencies:
+    tslib "^1.9.0"
+
+apollo-angular-link-http@^1.3.1:
+  version "1.6.0"
+  resolved "http://registry.npm.taobao.org/apollo-angular-link-http/download/apollo-angular-link-http-1.6.0.tgz#8cb6c9a3fd96fae8c318a60c14ae6a4eedad5b3d"
+  integrity sha1-jLbJo/2W+ujDGKYMFK5qTu2tWz0=
+  dependencies:
+    apollo-angular-link-http-common "~1.6.0"
+    extract-files "5.0.1"
+    tslib "^1.9.0"
+
+apollo-angular@^1.5.0:
+  version "1.5.0"
+  resolved "http://registry.npm.taobao.org/apollo-angular/download/apollo-angular-1.5.0.tgz#da653b76189fb72ea801c51996ea87fe19aa064f"
+  integrity sha1-2mU7dhifty6oAcUZluqH/hmqBk8=
+  dependencies:
+    semver "^5.5.1"
+    tslib "^1.9.0"
+
+apollo-cache-inmemory@^1.3.2:
+  version "1.5.1"
+  resolved "http://registry.npm.taobao.org/apollo-cache-inmemory/download/apollo-cache-inmemory-1.5.1.tgz#265d1ee67b0bf0aca9c37629d410bfae44e62953"
+  integrity sha1-Jl0e5nsL8Kypw3Yp1BC/rkTmKVM=
+  dependencies:
+    apollo-cache "^1.2.1"
+    apollo-utilities "^1.2.1"
+    optimism "^0.6.9"
+    ts-invariant "^0.2.1"
+    tslib "^1.9.3"
+
+apollo-cache@1.2.1, apollo-cache@^1.2.1:
+  version "1.2.1"
+  resolved "http://registry.npm.taobao.org/apollo-cache/download/apollo-cache-1.2.1.tgz#aae71eb4a11f1f7322adc343f84b1a39b0693644"
+  integrity sha1-qucetKEfH3MircND+EsaObBpNkQ=
+  dependencies:
+    apollo-utilities "^1.2.1"
+    tslib "^1.9.3"
+
+apollo-client@^2.4.0:
+  version "2.5.1"
+  resolved "http://registry.npm.taobao.org/apollo-client/download/apollo-client-2.5.1.tgz#36126ed1d32edd79c3713c6684546a3bea80e6d1"
+  integrity sha1-NhJu0dMu3XnDcTxmhFRqO+qA5tE=
+  dependencies:
+    "@types/zen-observable" "^0.8.0"
+    apollo-cache "1.2.1"
+    apollo-link "^1.0.0"
+    apollo-link-dedup "^1.0.0"
+    apollo-utilities "1.2.1"
+    symbol-observable "^1.0.2"
+    ts-invariant "^0.2.1"
+    tslib "^1.9.3"
+    zen-observable "^0.8.0"
+
+apollo-link-context@^1.0.17:
+  version "1.0.17"
+  resolved "http://registry.npm.taobao.org/apollo-link-context/download/apollo-link-context-1.0.17.tgz#439272cfb43ec1891506dd175ed907845b7de36c"
+  integrity sha1-Q5Jyz7Q+wYkVBt0XXtkHhFt942w=
+  dependencies:
+    apollo-link "^1.2.11"
+    tslib "^1.9.3"
+
+apollo-link-dedup@^1.0.0:
+  version "1.0.18"
+  resolved "http://registry.npm.taobao.org/apollo-link-dedup/download/apollo-link-dedup-1.0.18.tgz#635cb5659b082e7f270f7649c4b0f71021f7bb4b"
+  integrity sha1-Y1y1ZZsILn8nD3ZJxLD3ECH3u0s=
+  dependencies:
+    apollo-link "^1.2.11"
+    tslib "^1.9.3"
+
+apollo-link@^1.0.0, apollo-link@^1.2.0, apollo-link@^1.2.11:
+  version "1.2.11"
+  resolved "http://registry.npm.taobao.org/apollo-link/download/apollo-link-1.2.11.tgz#493293b747ad3237114ccd22e9f559e5e24a194d"
+  integrity sha1-STKTt0etMjcRTM0i6fVZ5eJKGU0=
+  dependencies:
+    apollo-utilities "^1.2.1"
+    ts-invariant "^0.3.2"
+    tslib "^1.9.3"
+    zen-observable-ts "^0.8.18"
+
+apollo-utilities@1.2.1, apollo-utilities@^1.2.1:
+  version "1.2.1"
+  resolved "http://registry.npm.taobao.org/apollo-utilities/download/apollo-utilities-1.2.1.tgz#1c3a1ebf5607d7c8efe7636daaf58e7463b41b3c"
+  integrity sha1-HDoev1YH18jv52NtqvWOdGO0Gzw=
+  dependencies:
+    fast-json-stable-stringify "^2.0.0"
+    ts-invariant "^0.2.1"
+    tslib "^1.9.3"
 
 app-root-path@^2.1.0:
   version "2.1.0"
@@ -2581,6 +2679,11 @@ extglob@^2.0.4:
     snapdragon "^0.8.1"
     to-regex "^3.0.1"
 
+extract-files@5.0.1:
+  version "5.0.1"
+  resolved "http://registry.npm.taobao.org/extract-files/download/extract-files-5.0.1.tgz#c9492a8410be643e260a376f0151361993d5f659"
+  integrity sha1-yUkqhBC+ZD4mCjdvAVE2GZPV9lk=
+
 extsprintf@1.3.0:
   version "1.3.0"
   resolved "http://registry.npm.taobao.org/extsprintf/download/extsprintf-1.3.0.tgz#96918440e3041a7a414f8c52e3c574eb3c3e1e05"
@@ -3057,6 +3160,23 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.15, graceful-fs@^4.1.2:
   resolved "http://registry.npm.taobao.org/graceful-fs/download/graceful-fs-4.1.15.tgz#ffb703e1066e8a0eeaa4c8b80ba9253eeefbfb00"
   integrity sha1-/7cD4QZuig7qpMi4C6klPu77+wA=
 
+graphql-tag@^2.10.1:
+  version "2.10.1"
+  resolved "http://registry.npm.taobao.org/graphql-tag/download/graphql-tag-2.10.1.tgz?cache=0&other_urls=http%3A%2F%2Fregistry.npm.taobao.org%2Fgraphql-tag%2Fdownload%2Fgraphql-tag-2.10.1.tgz#10aa41f1cd8fae5373eaf11f1f67260a3cad5e02"
+  integrity sha1-EKpB8c2PrlNz6vEfH2cmCjytXgI=
+
+graphql@^0.13.2:
+  version "0.13.2"
+  resolved "http://registry.npm.taobao.org/graphql/download/graphql-0.13.2.tgz#4c740ae3c222823e7004096f832e7b93b2108270"
+  integrity sha1-THQK48Iigj5wBAlvgy57k7IQgnA=
+  dependencies:
+    iterall "^1.2.1"
+
+hammerjs@^2.0.8:
+  version "2.0.8"
+  resolved "http://registry.npm.taobao.org/hammerjs/download/hammerjs-2.0.8.tgz#04ef77862cff2bb79d30f7692095930222bf60f1"
+  integrity sha1-BO93hiz/K7edMPdpIJWTAiK/YPE=
+
 handle-thing@^1.2.5:
   version "1.2.5"
   resolved "http://registry.npm.taobao.org/handle-thing/download/handle-thing-1.2.5.tgz#fd7aad726bf1a5fd16dfc29b2f7a6601d27139c4"
@@ -3322,6 +3442,11 @@ immediate@~3.0.5:
   version "3.0.6"
   resolved "http://registry.npm.taobao.org/immediate/download/immediate-3.0.6.tgz#9db1dbd0faf8de6fbe0f5dd5e56bb606280de69b"
   integrity sha1-nbHb0Pr43m++D13V5Wu2BigN5ps=
+
+immutable-tuple@^0.4.9:
+  version "0.4.10"
+  resolved "http://registry.npm.taobao.org/immutable-tuple/download/immutable-tuple-0.4.10.tgz#e0b1625384f514084a7a84b749a3bb26e9179929"
+  integrity sha1-4LFiU4T1FAhKeoS3SaO7JukXmSk=
 
 import-cwd@^2.0.0:
   version "2.1.0"
@@ -3848,6 +3973,11 @@ istanbul@0.4.5:
     supports-color "^3.1.0"
     which "^1.1.1"
     wordwrap "^1.0.0"
+
+iterall@^1.2.1:
+  version "1.2.2"
+  resolved "http://registry.npm.taobao.org/iterall/download/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
+  integrity sha1-ktcN64Ao4MOf8xZP2/TYsIgTDNc=
 
 jasmine-core@~2.8.0:
   version "2.8.0"
@@ -5007,6 +5137,13 @@ opn@^5.1.0:
   dependencies:
     is-wsl "^1.1.0"
 
+optimism@^0.6.9:
+  version "0.6.9"
+  resolved "http://registry.npm.taobao.org/optimism/download/optimism-0.6.9.tgz#19258ff8b3be0cea29ac35f06bff818e026e30bb"
+  integrity sha1-GSWP+LO+DOoprDXwa/+BjgJuMLs=
+  dependencies:
+    immutable-tuple "^0.4.9"
+
 optimist@^0.6.1, optimist@~0.6.0:
   version "0.6.1"
   resolved "http://registry.npm.taobao.org/optimist/download/optimist-0.6.1.tgz#da3ea74686fa21a19a111c326e90eb15a0196686"
@@ -6107,7 +6244,7 @@ semver-intersect@1.4.0:
   dependencies:
     semver "^5.0.0"
 
-"semver@2 || 3 || 4 || 5", semver@^5.0.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0, semver@^5.6.0:
+"semver@2 || 3 || 4 || 5", semver@^5.0.0, semver@^5.3.0, semver@^5.4.1, semver@^5.5.0, semver@^5.5.1, semver@^5.6.0:
   version "5.6.0"
   resolved "http://registry.npm.taobao.org/semver/download/semver-5.6.0.tgz#7e74256fbaa49c75aa7c7a205cc22799cac80004"
   integrity sha1-fnQlb7qknHWqfHogXMInmcrIAAQ=
@@ -6789,7 +6926,7 @@ supports-color@^6.0.0, supports-color@^6.1.0:
   dependencies:
     has-flag "^3.0.0"
 
-symbol-observable@1.2.0:
+symbol-observable@1.2.0, symbol-observable@^1.0.2:
   version "1.2.0"
   resolved "http://registry.npm.taobao.org/symbol-observable/download/symbol-observable-1.2.0.tgz#c22688aed4eab3cdc2dfeacbb561660560a00804"
   integrity sha1-wiaIrtTqs83C3+rLtWFmBWCgCAQ=
@@ -6958,6 +7095,20 @@ trim-right@^1.0.1:
   dependencies:
     glob "^7.1.2"
 
+ts-invariant@^0.2.1:
+  version "0.2.1"
+  resolved "http://registry.npm.taobao.org/ts-invariant/download/ts-invariant-0.2.1.tgz#3d587f9d6e3bded97bf9ec17951dd9814d5a9d3f"
+  integrity sha1-PVh/nW473tl7+ewXlR3ZgU1anT8=
+  dependencies:
+    tslib "^1.9.3"
+
+ts-invariant@^0.3.2:
+  version "0.3.3"
+  resolved "http://registry.npm.taobao.org/ts-invariant/download/ts-invariant-0.3.3.tgz#b5742b1885ecf9e29c31a750307480f045ec0b16"
+  integrity sha1-tXQrGIXs+eKcMadQMHSA8EXsCxY=
+  dependencies:
+    tslib "^1.9.3"
+
 ts-node@~7.0.0:
   version "7.0.1"
   resolved "http://registry.npm.taobao.org/ts-node/download/ts-node-7.0.1.tgz#9562dc2d1e6d248d24bc55f773e3f614337d9baf"
@@ -6972,7 +7123,7 @@ ts-node@~7.0.0:
     source-map-support "^0.5.6"
     yn "^2.0.0"
 
-tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0:
+tslib@^1.7.1, tslib@^1.8.0, tslib@^1.8.1, tslib@^1.9.0, tslib@^1.9.3:
   version "1.9.3"
   resolved "http://registry.npm.taobao.org/tslib/download/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
   integrity sha1-1+TdeSRdhUKMTX5IIqeZF5VMooY=
@@ -7608,6 +7759,19 @@ yn@^2.0.0:
   version "2.0.0"
   resolved "http://registry.npm.taobao.org/yn/download/yn-2.0.0.tgz#e5adabc8acf408f6385fc76495684c88e6af689a"
   integrity sha1-5a2ryKz0CPY4X8dklWhMiOavaJo=
+
+zen-observable-ts@^0.8.18:
+  version "0.8.18"
+  resolved "http://registry.npm.taobao.org/zen-observable-ts/download/zen-observable-ts-0.8.18.tgz#ade44b1060cc4a800627856ec10b9c67f5f639c8"
+  integrity sha1-reRLEGDMSoAGJ4VuwQucZ/X2Ocg=
+  dependencies:
+    tslib "^1.9.3"
+    zen-observable "^0.8.0"
+
+zen-observable@^0.8.0:
+  version "0.8.14"
+  resolved "http://registry.npm.taobao.org/zen-observable/download/zen-observable-0.8.14.tgz#d33058359d335bc0db1f0af66158b32872af3bf7"
+  integrity sha1-0zBYNZ0zW8DbHwr2YVizKHKvO/c=
 
 zone.js@~0.8.26:
   version "0.8.29"

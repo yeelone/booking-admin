@@ -1,0 +1,19 @@
+.user-form-container{
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    .action-bar{
+        width: 300px;
+        margin: auto;
+        text-align: center;
+    }
+}
+
+.user-form-container .mat-radio-button {
+    margin: 0 5px;
+  }
+
+.loading-spinner{
+    margin: auto;
+}

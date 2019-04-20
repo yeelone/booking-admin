@@ -1,0 +1,47 @@
+.ticket-seller-form-container {
+    display: flex;
+    flex-direction: row;
+    overflow: auto; 
+
+    .action-bar{
+        width: 300px;
+        margin: auto;
+        text-align: center;
+    }
+
+    .user-card {
+        width: 200px;
+    }
+
+    .ticket-list {
+        display: flex;
+
+        .ticket-card {
+            width: 200px;
+            padding: 10px;
+
+            img {
+                width: 80%;
+                margin: auto;
+                display: block;
+            }
+
+            input {
+                width: 80px;
+                height: 25px;
+                margin-left: 35px;
+                background: darkseagreen;
+                border-radius: 10px;
+                padding: 5px;
+            }
+        }
+    }
+    
+    
+}
+
+.record-container {
+    table {
+        width: 100% ;
+    }
+}
