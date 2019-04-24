@@ -72,6 +72,17 @@
         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
     </mat-form-field>
 
+    <div>
+        <p>
+            <mat-label>管理员: </mat-label>
+            <ng-container *ngIf="source.canteen.admin">
+              {{ source.canteen.admin.username }}
+            </ng-container>
+        </p>
+       
+        <button mat-raised-button color="primary" (click)="openUserDialog()">添加管理员<mat-icon>add</mat-icon></button>
+    </div>
+    
     <div class="action-bar">
       <button mat-button  (click)="onNoClick()">close</button>
       <ng-container *ngIf="source.canteen.id;else other_content">

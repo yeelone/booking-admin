@@ -92,7 +92,6 @@ export class UserSelectorComponent implements  AfterViewInit , OnDestroy {
     for(let i=0;i<this.users.length;i++){
       ids.push(this.users[i].id);
     }
-    console.log("ids",ids,this.users);
     this.checkSubscription = this.apollo.watchQuery({
       query: ServiceGQl.checkUserNotInRoleGQL,
       variables: {
@@ -138,7 +137,10 @@ export class UserSelectorComponent implements  AfterViewInit , OnDestroy {
         this.resultsLength = result.data['users']['totalCount'];
         this.users = result.data['users']['rows'] ;
         this.dataSource = new MatTableDataSource(this.users);
-        this.checkUserInRole();
+        if ( this.source.role ) {
+          this.checkUserInRole();
+        }
+        
     },(error)=>{
       this.isLoadingResults = false  ;
       alert("error:"+error);
@@ -147,7 +149,11 @@ export class UserSelectorComponent implements  AfterViewInit , OnDestroy {
   
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
-    this.checkSubscription.unsubscribe();
+
+    if ( this.checkSubscription ) {
+      this.checkSubscription.unsubscribe();
+    }
+    
   }
 
   onNoClick(): void {

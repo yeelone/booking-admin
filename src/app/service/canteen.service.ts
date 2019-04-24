@@ -27,6 +27,10 @@ export const  queryCanteens = gql`
                     dinner
                     lunch
                 }
+                admin{
+                    id
+                    username
+                }
                 }
             }
         }
@@ -51,10 +55,11 @@ export const  queryCanteenCount = gql`
 
 
 export const createCanteen = gql`
-    mutation createCanteen($name:String!,$groupID:Int!,$breakfastTime:String!,$lunchTime:String!,$dinnerTime:String!,$bookingBreakfastDeadline:String!,$bookingLunchDeadline:String!,$bookingDinnerDeadline:String!,$cancelTime:Int!) {
+    mutation createCanteen($name:String!,$groupID:Int!,$adminId:Int!,$breakfastTime:String!,$lunchTime:String!,$dinnerTime:String!,$bookingBreakfastDeadline:String!,$bookingLunchDeadline:String!,$bookingDinnerDeadline:String!,$cancelTime:Int!) {
         createCanteens(input:{
             name:$name, 
             groupID:$groupID,
+            adminId:$adminId, 
             breakfastTime:$breakfastTime, 
             lunchTime: $lunchTime, 
             dinnerTime: $dinnerTime,
@@ -70,11 +75,12 @@ export const createCanteen = gql`
 
 
 export const updateCanteen = gql`
-    mutation updateCanteens($id:Int!, $name:String,$groupID:Int,$breakfastTime:String,$lunchTime:String,$dinnerTime:String,$bookingBreakfastDeadline:String,$bookingLunchDeadline:String,$bookingDinnerDeadline:String,$cancelTime:Int) {
+    mutation updateCanteens($id:Int!, $name:String,$groupID:Int,$adminId:Int, $breakfastTime:String,$lunchTime:String,$dinnerTime:String,$bookingBreakfastDeadline:String,$bookingLunchDeadline:String,$bookingDinnerDeadline:String,$cancelTime:Int) {
         updateCanteens(input:{
             id:$id, 
             name:$name, 
             groupID:$groupID,
+            adminId:$adminId, 
             breakfastTime:$breakfastTime, 
             lunchTime: $lunchTime, 
             dinnerTime: $dinnerTime,

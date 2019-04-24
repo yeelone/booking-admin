@@ -1,3 +1,5 @@
+import { User } from './user';
+
 export class Canteen {
     id: number;
     name: string;
@@ -13,4 +15,5 @@ export class Canteen {
 	bookingDinnerDeadline : string;
 	cancelTime : number;
 	qrcode:string;
+	admin:User;
 }
