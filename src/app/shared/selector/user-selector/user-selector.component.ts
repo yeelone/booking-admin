@@ -5,7 +5,6 @@ import { Apollo } from 'apollo-angular';
 import { merge, Subscription, of as observableOf } from 'rxjs';
 import { User } from '../../../model/user';
 import { ServiceGQl } from '../../../service/graphql';
-import { UserDialogComponent } from 'src/app/shared/dialog/user-dialog/user-dialog.component';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 
 import { catchError } from 'rxjs/operators';
@@ -26,7 +25,7 @@ export interface DialogData {
 export class UserSelectorComponent implements  AfterViewInit , OnDestroy {
   private userSubscription: Subscription;
   private checkSubscription: Subscription;
-  private source: DialogData;
+  source: DialogData;
   users:User[] = [];
   returnMsg:string = "";
   displayedColumns: string[] = ['select','ID','username','email'];

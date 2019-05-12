@@ -8,6 +8,7 @@ import {FormControl} from '@angular/forms';
 import { User } from 'src/app/model/user';
 import { Role } from 'src/app/model/role';
 import config from 'src/app/config/config';
+import { GroupDialogComponent } from 'src/app/shared/dialog/group-dialog/group-dialog.component';
 
 @Component({
   selector: 'app-group',
@@ -16,19 +17,21 @@ import config from 'src/app/config/config';
 })
 export class GroupComponent implements AfterViewInit , OnDestroy {
   isLoadingResults:boolean = true ; 
-  
-  private userSubscription: Subscription;
+  userSubscription: Subscription;
   defaultTake = 50 ;
   skip:number = 0 ;
   take:number = this.defaultTake ;
-
+  baseUrl:string = "";
   resultsLength = 0;
   groups:Group[] = [];
 
   newTabs = [];
   selected = new FormControl(0);
 
-  constructor(public dialog: MatDialog,private apollo: Apollo) { }
+  avatar:string = config.baseurl + "/assets/canteen-min.jpg";
+  constructor(public dialog: MatDialog,private apollo: Apollo) { 
+    this.baseUrl = config.baseurl;
+  }
 
   ngAfterViewInit() {
     this.queryGroups(null);
@@ -62,7 +65,6 @@ export class GroupComponent implements AfterViewInit , OnDestroy {
 
   isAdmin(group:Group):boolean {
     let currentUser = JSON.parse(localStorage.getItem('currentUser')) || new User();
-    let username  = group.adminInfo.username ; 
     let role = new Role();
 
     if (  currentUser['roles']['rows'].length ){
@@ -80,6 +82,21 @@ export class GroupComponent implements AfterViewInit , OnDestroy {
     }
 
     return false;
+  }
+
+  openEditDialog(group:Group):void{
+    
+    const dialogRef = this.dialog.open(GroupDialogComponent, {
+      width: '800px',
+      maxHeight:'600px',
+      // disableClose:true,
+      data: {group: Object.assign({}, group )}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.queryGroups(null);
+    });
   }
 
   ngOnDestroy() {

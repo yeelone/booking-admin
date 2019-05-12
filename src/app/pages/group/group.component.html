@@ -1,8 +1,10 @@
-<div class="group-container mat-elevation-z8">
+<div class="group-container">
   <div *ngIf="isLoadingResults">
       <mat-progress-bar mode="query" ></mat-progress-bar>
   </div>
 
+  <button mat-fab color="primary" (click)="openEditDialog()" *appCanAccess="['CREATE_GROUP']">新建</button>
+  
   <div>
       <ul class="org-list">
           <li *ngFor="let g of groups ; let i = index " >
@@ -12,10 +14,11 @@
                   <mat-card-title> {{ g.name }} </mat-card-title>
                   <mat-card-subtitle> {{ g.adminInfo.username }} </mat-card-subtitle>
                 </mat-card-header>
-                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                <img mat-card-image src="{{baseUrl + '/'  + g.picture}}" alt="Photo of a Shiba Inu">
                 <mat-card-actions>
-                  <a mat-raised-button color="primary" href="org/{{g.id}}/users" *appCanAccess="['QUERY_USER_INFO']">人员管理</a>
-                  <a mat-raised-button color="primary" href="org/{{g.id}}/canteens" *appCanAccess="['QUERY_CANTEEN']">食堂管理</a>
+                  <button mat-raised-button color="primary" *appCanAccess="['UPDATE_GROUP']" (click)="openEditDialog(g)" >更新</button>
+                  <a mat-raised-button color="primary" href="admin/org/{{g.id}}/users" *appCanAccess="['QUERY_USER_INFO']">人员管理</a>
+                  <a mat-raised-button color="primary" href="admin/org/{{g.id}}/canteens" *appCanAccess="['QUERY_CANTEEN']">食堂管理</a>
                 </mat-card-actions>
               </mat-card>
           </li>

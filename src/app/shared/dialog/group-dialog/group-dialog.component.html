@@ -1,0 +1,38 @@
+<div class="container">
+    <div *ngIf="loading">
+        <mat-progress-bar mode="query" ></mat-progress-bar>
+    </div>
+    <mat-form-field appearance="outline">
+        <mat-label>组织名</mat-label>
+        <input matInput [(ngModel)]="source.group.name">
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+          <app-uploader path="group" (change)="onUpload($event)" class="uploader"></app-uploader>
+          <mat-label>Picture</mat-label>
+          <img src="{{baseUrl + '/' +source.group.picture}}" alt="" width="200">
+          <input disabled  matInput [(ngModel)]="source.group.picture" style="display: none;">
+          <mat-icon matSuffix>photo</mat-icon>
+      </mat-form-field>
+      
+      
+  <p>
+      <button mat-raised-button color="primary" (click)="openUserDialog()">添加管理员<mat-icon>add</mat-icon></button>
+      <mat-label>管理员: </mat-label>
+      <ng-container *ngIf="source.group?.adminInfo">
+        {{ source.group.adminInfo.username }}
+      </ng-container>
+  </p>
+
+  <div class="action-bar">
+      <button mat-button  (click)="onNoClick()">close</button>
+      <ng-container *ngIf="source.group.id;else other_content">
+        <button mat-raised-button color="accent" (click)="update()">update</button>
+      </ng-container>
+      <ng-template #other_content>
+        <button mat-raised-button color="accent" (click)="create()">create</button>
+      </ng-template>
+    </div>
+
+</div>

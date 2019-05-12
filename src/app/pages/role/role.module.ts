@@ -4,13 +4,13 @@ import { RoleComponent } from './role.component';
 import { SharedModule } from '../../shared/shared.module';
 import { CustomMaterialModule } from '../../core/material.module';
 import { RoleRoutingModule } from './role-routing.module';
-import { UserListComponent } from './user-list/user-list.component';
+import { RoleUserListComponent } from './user-list/user-list.component';
 import { PermissionListComponent } from './permission-list/permission-list.component';
-import { CanAccessDirective } from 'src/app/directive/can-access.directive';
+import { CustomDirectiveModule } from 'src/app/directive/directive.module';
 
 const COMPONENTS = [
   RoleComponent,
-  UserListComponent,
+  RoleUserListComponent,
 ];
 
 const SERVICES = [
@@ -21,6 +21,7 @@ const MODULES = [
   CommonModule,
   SharedModule,
   CustomMaterialModule,
+  CustomDirectiveModule,
 ];
 
 @NgModule({
@@ -30,7 +31,6 @@ const MODULES = [
   declarations: [
     ...COMPONENTS,
     PermissionListComponent,
-    CanAccessDirective,
   ],
   providers: [
     ...SERVICES,

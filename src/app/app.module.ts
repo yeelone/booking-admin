@@ -12,6 +12,7 @@ import { HeaderComponent } from './shared/header/header.component';
 import { CustomMaterialModule } from './core/material.module';
 import { LoginComponent } from './pages/login/login.component';
 import { GraphQLModule } from './graphql.module';
+import { CustomDirectiveModule } from './directive/directive.module';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { GraphQLModule } from './graphql.module';
     HttpClientModule,
     SharedModule,
     CustomMaterialModule,
+    CustomDirectiveModule,
     GraphQLModule,
   ],
   providers: [AuthGuard],

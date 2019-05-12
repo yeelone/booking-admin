@@ -16,4 +16,5 @@ export class Canteen {
 	cancelTime : number;
 	qrcode:string;
 	admin:User;
+	count:number; 
 }

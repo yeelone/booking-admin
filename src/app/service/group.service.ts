@@ -9,6 +9,7 @@ export const queryGroups = gql`
     rows{
       id
       name
+      picture
       adminInfo{
         id
         username
@@ -27,6 +28,7 @@ export const queryGroupsWithCanteens = gql`
     rows{
       id
       name
+      picture
       canteens{
         totalCount
         rows{
@@ -51,6 +53,7 @@ export const queryGroupsWithUsers = gql`
     rows{
       id
       name
+      picture
       users(filter:{username:$username,email:$email}){
         totalCount
         rows{
@@ -65,15 +68,15 @@ export const queryGroupsWithUsers = gql`
 `
 
 export const  updateGroup = gql`
-    mutation updateGroup($id:Int!,$name:String) {
-      updateGroup(input:{id:$id, name:$name}){
+    mutation updateGroup($id:Int!,$admin:Int,$name:String,$picture:String) {
+      updateGroup(input:{id:$id, name:$name,admin:$admin,picture:$picture}){
         id
       }  
     }`
 
 export const  createGroup = gql`
-  mutation createGroups($name: String!,$parent: Int!, $levels:String!){
-    createGroup(input:{name:$name,parent:$parent,levels:$levels}){
+  mutation createGroups($name: String!,$admin:Int!, $parent: Int!,$picture:String!){
+    createGroup(input:{name:$name,parent:$parent,admin:$admin,picture:$picture}){
       id
     }
 }`

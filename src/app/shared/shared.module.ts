@@ -10,19 +10,20 @@ import { CanteenDialogComponent } from './dialog/canteen-dialog/canteen-dialog.c
 import { ConfirmDialogComponent } from './dialog/confirm-dialog/confirm-dialog.component';
 import { QrcodeDialogComponent } from './dialog/qrcode-dialog/qrcode-dialog.component';
 import { BookingListDialogComponent } from './dialog/booking-list-dialog/booking-list-dialog.component';
-import { UserListComponent } from './list/user-list/user-list.component';
 import { UserSelectorComponent } from './selector/user-selector/user-selector.component';
+import { GroupDialogComponent } from './dialog/group-dialog/group-dialog.component';
 
 const COMPONENTS = [
   ChangePasswordComponent,
+  UploaderComponent,
   UserDialogComponent,
   TicketSellerDialogComponent,
   CanteenDialogComponent,
   ConfirmDialogComponent,
   QrcodeDialogComponent,
   BookingListDialogComponent,
-  UserListComponent,
   UserSelectorComponent,
+  GroupDialogComponent,
 ];
 
 const MODULES = [
@@ -35,15 +36,9 @@ const MODULES = [
 @NgModule({
   declarations: [
     ...COMPONENTS,
-    UploaderComponent,
-    UserDialogComponent,
-    TicketSellerDialogComponent,
-    CanteenDialogComponent,
-    ConfirmDialogComponent,
-    QrcodeDialogComponent,
-    BookingListDialogComponent,
-    UserListComponent,
-    UserSelectorComponent,
+  ],
+  exports:[
+    ...COMPONENTS,
   ],
   imports:[
     ...MODULES,

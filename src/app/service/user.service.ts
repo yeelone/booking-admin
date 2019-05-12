@@ -9,7 +9,6 @@ export const  queryUsers = gql`
             username
             email
             picture
-            password
           }
         }
       }`
@@ -23,7 +22,6 @@ export const  queryUserWithGroup = gql`
             username
             email
             picture
-            password
             groups{
               totalCount
               skip
@@ -46,7 +44,6 @@ export const  queryUserWithRole = gql`
             username
             email
             picture
-            password
             roles{
               totalCount
               skip
@@ -73,13 +70,20 @@ export const  updateUser = gql`
 }`
 
 export const  createUser = gql`
-    mutation createUser($username: String!,$email: String!$picture:String,$groupId:Int){
+    mutation createUser($username: String!,$email: String!,$picture:String,$groupId:Int){
       createUser(input:{username:$username,email:$email,password:"123456",picture:$picture,groupId:$groupId}){
         id
         username
         picture
         email
         state 
+      }
+}`
+
+export const  createUsers = gql`
+    mutation createUsers($file:String!,$groupId:Int!){
+      createUsers(input:{uploadFile:$file,groupId:$groupId}){
+        errors
       }
 }`
 

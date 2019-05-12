@@ -4,11 +4,12 @@ import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './shared/injectable/authguard';
 
 const routes: Routes = [
-  { path: 'users', loadChildren: './pages/user/user.module#UserModule', canActivate: [AuthGuard]},
-  { path: 'org', loadChildren: './pages/group/group.module#GroupModule', canActivate: [AuthGuard]},
-  { path: 'role', loadChildren: './pages/role/role.module#RoleModule', canActivate: [AuthGuard]},
-  { path: 'dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardModule', canActivate: [AuthGuard]},
-  { path: 'login', component : LoginComponent },
+  { path: 'admin/users', loadChildren: './pages/user/user.module#UserModule', canActivate: [AuthGuard]},
+  { path: 'admin/org', loadChildren: './pages/group/group.module#GroupModule', canActivate: [AuthGuard]},
+  { path: 'admin/role', loadChildren: './pages/role/role.module#RoleModule', canActivate: [AuthGuard]},
+  { path: 'admin/config', loadChildren: './pages/config/config.module#ConfigModule', canActivate: [AuthGuard]},
+  { path: 'admin/dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardModule', canActivate: [AuthGuard]},
+  { path: 'admin/login', component : LoginComponent },
   { path : '', loadChildren: './pages/dashboard/dashboard.module#DashboardModule',  canActivate: [AuthGuard]}
 ];
 

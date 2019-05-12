@@ -17,7 +17,7 @@ export interface DialogData {
 })
 export class QrcodeDialogComponent implements OnInit {
 
-  private source: DialogData ; 
+  source: DialogData ; 
   baseUrl:string = config.baseurl; 
   loading:boolean = false; 
   returnMsg:string = "";

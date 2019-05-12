@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject,Output,EventEmitter} from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
-import { ServiceGQl } from '../../../service/graphql';
 import { Canteen } from 'src/app/model/canteen';
 
 interface DialogData {
@@ -16,7 +15,7 @@ interface DialogData {
 export class BookingListDialogComponent implements OnInit {
   displayedColumns: string[] = ['日期', '早餐', '午餐', '晚餐'];
 
-  private source: DialogData;
+  source: DialogData;
   loading:boolean = false;
   done:boolean = false;
   returnMsg: string = "";

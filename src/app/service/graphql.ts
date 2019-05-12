@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Query } from 'apollo-angular';
-import { queryUsers,queryUserWithGroup, queryUserWithRole, resetUserPassword, logoutUser } from './user.service';
+import { queryUsers,queryUserWithGroup, queryUserWithRole, resetUserPassword, logoutUser, createUsers } from './user.service';
 import { createUser,updateUser,deleteUsers,loginUser } from './user.service';
 import { queryGroups,queryGroupsWithCanteens,queryGroupsWithUsers,updateGroup,createGroup,addUserToGroup,removeUserToGroup,deleteGroups } from './group.service';
 import { queryTickets,queryTicketCount, sellTicket, recyclingTicket, ticketSellRecord  } from './ticket.service';
@@ -8,6 +8,7 @@ import { queryCanteens,createCanteen,updateCanteen,delCanteens,genQrcode,queryCa
 import { queryRoles, queryRoleWithUsers, addUserToRole, remUserToRole, checkUserNotInRole } from './role.service';
 import { createRoleAndPermissionRelationship, queryPermissions } from './permission.service';
 import { queryDashboard } from './dashboard.service';
+import { queryConfig, updateConfig } from './config.service';
 
 export interface Response {
 }
@@ -21,6 +22,7 @@ export class ServiceGQl extends Query<Response> {
     public static userWithRoleGQL = queryUserWithRole;
     public static updateUserGQL = updateUser;
     public static createUserGQL = createUser;
+    public static createUsersGQL = createUsers;
     public static deleteUserGQL = deleteUsers ;
     public static loginGQL = loginUser ;
     public static logoutGQL = logoutUser ;
@@ -60,4 +62,7 @@ export class ServiceGQl extends Query<Response> {
     public static resetUserPasswordGQL = resetUserPassword ; 
 
     public static queryDashboardGQL = queryDashboard ; 
+
+    public static queryConfigGQL = queryConfig;
+    public static updateConfigGQL = updateConfig;
 }

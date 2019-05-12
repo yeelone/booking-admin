@@ -10,6 +10,7 @@ import { CanteenDialogComponent } from 'src/app/shared/dialog/canteen-dialog/can
 import { ConfirmDialogComponent } from 'src/app/shared/dialog/confirm-dialog/confirm-dialog.component';
 import { QrcodeDialogComponent } from 'src/app/shared/dialog/qrcode-dialog/qrcode-dialog.component';
 import { BookingListDialogComponent } from 'src/app/shared/dialog/booking-list-dialog/booking-list-dialog.component';
+import config from 'src/app/config/config';
 
 @Component({
   selector: 'app-canteen',
@@ -18,6 +19,7 @@ import { BookingListDialogComponent } from 'src/app/shared/dialog/booking-list-d
 })
 export class CanteenComponent implements AfterViewInit , OnDestroy  {
   private canteenSubscription: Subscription;
+  baseUrl:string = "";
   group:Group = new Group();
   canteens:Canteen[];
   resultsLength = 0;
@@ -41,7 +43,9 @@ export class CanteenComponent implements AfterViewInit , OnDestroy  {
   skip:number = 0 ;
   take:number = this.defaultTake ;
 
-  constructor(private route:ActivatedRoute,public dialog: MatDialog,private apollo: Apollo) { }
+  constructor(private route:ActivatedRoute,public dialog: MatDialog,private apollo: Apollo) {
+    this.baseUrl = config.baseurl;
+  }
 
   ngAfterViewInit() {
     this.queryGroup(null);

@@ -10,7 +10,7 @@
                 <div mat-card-avatar class="example-header-image"></div>
                 <mat-card-title> {{ group.name }} </mat-card-title>
               </mat-card-header>
-              <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+              <img mat-card-image src="{{baseUrl + '/'  + group.picture}}" alt="Photo of a Shiba Inu">
               <mat-card-actions>
                 <a mat-raised-button href="org/{{group.id}}/canteens" *appCanAccess="['QUERY_CANTEEN']">食堂管理</a>
               </mat-card-actions>
@@ -29,6 +29,7 @@
               <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
           </mat-form-field>
           <button mat-raised-button color="primary" (click)="openEditDialog()" *appCanAccess="['CREATE_USER_INFO']">Add new user <mat-icon>add</mat-icon></button>
+          <app-uploader path="newusers" (change)="onUpload($event)" class="uploader" title="批量增加用户" filetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" ></app-uploader> 
           <button mat-raised-button color="warn"  (click)="deleteUsers()" [disabled]="disableDelBtn" *appCanAccess="['DELETE_USER_INFO']">
               delete user 
               <div *ngIf="deleteLoading">

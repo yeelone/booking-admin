@@ -14,17 +14,20 @@
       <mat-form-field>
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
       </mat-form-field>
-      <button mat-raised-button color="primary" (click)="openEditDialog()">新增用户 <mat-icon>add</mat-icon></button>
-      <button mat-raised-button class="btn-pink" (click)="resetPassword()">重置密码 <mat-icon>add</mat-icon></button>
-      <button mat-raised-button color="warn"  (click)="deleteUsers()" [disabled]="disableDelBtn">
-          删除用户
-          <div *ngIf="deleteLoading">
-              <mat-progress-bar mode="query" ></mat-progress-bar>
-          </div>
-          <mat-icon>delete</mat-icon>
-        </button>
+      <span class="action-btn">
+        <button mat-raised-button color="primary" (click)="openEditDialog(null)">新增用户 <mat-icon>add</mat-icon></button>
+        <button mat-raised-button class="btn-pink" (click)="resetPassword()">重置密码 <mat-icon>add</mat-icon></button>
+        <button mat-raised-button color="warn"  (click)="deleteUsers()" [disabled]="disableDelBtn">
+            删除用户
+            <div *ngIf="deleteLoading">
+                <mat-progress-bar mode="query" ></mat-progress-bar>
+            </div>
+            <mat-icon>delete</mat-icon>
+          </button>
+      </span>
+      
         
-    <table mat-table [dataSource]="dataSource" class="users-table"
+    <table mat-table [dataSource]="dataSource" 
            matSort matSortActive="username" matSortDisableClear matSortDirection="desc">
       <ng-container matColumnDef="select">
         <th mat-header-cell *matHeaderCellDef>

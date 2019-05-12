@@ -32,12 +32,12 @@ interface RecordData {
   styleUrls: ['./ticket-seller-dialog.component.scss']
 })
 export class TicketSellerDialogComponent implements OnInit {
-  private serverUrl = config.baseurl ; 
-  private ticketSubscription: Subscription;
-  private ticketRecordSubscription: Subscription;
-  private source: DialogData;
-  private countData: CountData;
-  private recordDataSource: MatTableDataSource<CountData[]>;
+  serverUrl = config.baseurl ; 
+  ticketSubscription: Subscription;
+  ticketRecordSubscription: Subscription;
+  source: DialogData;
+  countData: CountData;
+  recordDataSource: MatTableDataSource<CountData[]>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   i10n = {

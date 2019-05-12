@@ -12,6 +12,8 @@ import { TicketSellerDialogComponent } from 'src/app/shared/dialog/ticket-seller
 import { catchError } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { Group } from 'src/app/model/group';
+import config from 'src/app/config/config';
+import { ErrorsComponent } from '../errors/errors.component';
 
 @Component({
   selector: 'app-user',
@@ -19,6 +21,9 @@ import { Group } from 'src/app/model/group';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements AfterViewInit , OnDestroy {
+  baseUrl:string = "";
+
+  returnMsgs:string[] = [];
   returnMsg:string = "";
 
   displayedColumns: string[] = ['select','Actions','ID','username','email'];
@@ -42,8 +47,8 @@ export class UserComponent implements AfterViewInit , OnDestroy {
 
   selectedSearchType:string  = "username";
   searchTypes = [
-    {value: 'username', viewValue: 'username'},
-    {value: 'email', viewValue: 'email'},
+    {value: 'username', viewValue: '用户名'},
+    {value: 'email', viewValue: '邮箱地址'},
   ];
 
   selection = new SelectionModel<User>(true, []);
@@ -59,7 +64,9 @@ export class UserComponent implements AfterViewInit , OnDestroy {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private route:ActivatedRoute,public dialog: MatDialog,private apollo: Apollo) { }
+  constructor(private route:ActivatedRoute,public dialog: MatDialog,private apollo: Apollo) { 
+    this.baseUrl = config.baseurl;
+  }
 
   ngAfterViewInit() {
     
@@ -85,6 +92,34 @@ export class UserComponent implements AfterViewInit , OnDestroy {
 
   getUsers():void {
      this.loading = true ; 
+  }
+
+  onUpload(filepath:string):void{
+    if ( filepath.length > 0 ) {
+      this.loading = true  ;
+      this.apollo.mutate({
+        mutation: ServiceGQl.createUsersGQL,
+        variables: {
+          file:filepath, 
+          groupId: +this.group.id,
+        },
+      }).subscribe((data) => {
+        this.loading = false;
+        this.returnMsgs = data['data']['createUsers']['errors'];
+        if ( this.returnMsgs.length > 0 ){
+          this.dialog.open(ErrorsComponent, {
+            maxHeight:'600px',
+            data: {errors:this.returnMsgs}
+          });
+        }
+        
+        this.queryUsers(null);
+      },(error) => {
+        this.deleteLoading = false;
+        this.returnMsgs = error;
+      });
+
+    }
   }
 
   queryUsers(filter:Map<string,string>):void{
@@ -211,7 +246,7 @@ export class UserComponent implements AfterViewInit , OnDestroy {
       this.queryUsers(null);
     },(error) => {
       this.deleteLoading = false;
-      this.returnMsg = error;
+      this.returnMsgs = error;
     });
   }
 }

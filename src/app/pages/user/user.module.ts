@@ -6,7 +6,7 @@ import { SharedModule } from '../../shared/shared.module';
 import { CustomMaterialModule } from '../../core/material.module';
 
 const COMPONENTS = [
-  UserComponent
+  UserComponent,
 ];
 
 const SERVICES = [

@@ -5,6 +5,7 @@ export class Group {
     name: string;
     users: User[];
     parent:number;
+    picture:string;
     levels: string;
     adminInfo : User;
 }

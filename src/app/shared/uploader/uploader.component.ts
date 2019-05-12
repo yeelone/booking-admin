@@ -9,13 +9,22 @@ import { UploadService } from 'src/app/service/upload.service';
 })
 export class UploaderComponent {
   @Input()
+  title:string 
+
+  @Input()
   path:string 
+
+  @Input()
+  filetype:string 
   
   // 上传成功就返回了上传的文件路径名，失败则为空
   @Output()
   change: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor(private snackBar: MatSnackBar,private uploadService: UploadService) { }
+  constructor(private snackBar: MatSnackBar,private uploadService: UploadService) { 
+    this.filetype = "image/*";
+    this.title = "请选择上传文件";
+  }
   selectedFile: ImageSnippet;
 
   private handlerSuccess() {

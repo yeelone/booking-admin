@@ -16,7 +16,7 @@ import { UserSelectorComponent } from 'src/app/shared/selector/user-selector/use
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
-export class UserListComponent implements AfterViewInit , OnDestroy {
+export class RoleUserListComponent implements AfterViewInit , OnDestroy {
   private subscription: Subscription;
   displayedColumns: string[] = ['select','ID','username'];
   dataSource: MatTableDataSource<User> ;

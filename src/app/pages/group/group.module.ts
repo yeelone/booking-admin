@@ -6,7 +6,8 @@ import { CustomMaterialModule } from '../../core/material.module';
 import { GroupRoutingModule } from './group-routing.module';
 import { UserComponent } from './user/user.component';
 import { CanteenComponent } from './canteen/canteen.component';
-import { CanAccessDirective } from 'src/app/directive/can-access.directive';
+import { CustomDirectiveModule } from 'src/app/directive/directive.module';
+import { ErrorsComponent } from './errors/errors.component';
 
 const MODULES = [
   GroupRoutingModule,
@@ -16,9 +17,13 @@ const MODULES = [
 ];
 
 @NgModule({
-  declarations: [GroupComponent, UserComponent, CanteenComponent,CanAccessDirective],
+  declarations: [GroupComponent, UserComponent, CanteenComponent, ErrorsComponent],
   imports: [
     ...MODULES,
+    CustomDirectiveModule,
+  ],
+  entryComponents: [
+    ErrorsComponent
   ],
 })
 export class GroupModule { }

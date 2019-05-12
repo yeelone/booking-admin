@@ -19,7 +19,7 @@ interface DialogData {
 })
 export class CanteenDialogComponent implements OnInit {
 
-  private source: DialogData;
+  source: DialogData;
   loading:boolean = false;
   done:boolean = false;
   returnMsg: string = "";

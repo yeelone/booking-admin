@@ -61,7 +61,7 @@ export class HeaderComponent implements OnInit {
       localStorage.setItem('currentUser', "");
       localStorage.setItem('currentToken', "");
       localStorage.setItem('permissions', "");
-      location.href = "/login"; 
+      location.href = "admin/login"; 
     },(error) => {
       console.log("error", error)
     });

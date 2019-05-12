@@ -21,17 +21,19 @@ export class LoginComponent implements OnInit {
   username: string;
   password: string;
   returnUrl: string;
+  showSpinner: boolean = false ; 
 
   ngOnInit() {
     // // reset login status
     this.authService.logout();
 
     // // get return url from route parameters or default to '/'
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/admin/dashboard';
 
   }
   
   login() : void {
+    this.showSpinner = true ; 
     this.apollo.mutate({
       mutation: ServiceGQl.loginGQL,
       variables: {
@@ -39,6 +41,7 @@ export class LoginComponent implements OnInit {
         password: this.password
       },
     }).subscribe((data) => {
+      this.showSpinner = false; 
       let currentUser:User = new User();
       currentUser = data['data']['login']['user'];
       currentUser.token = data['data']['login']['token'];
@@ -50,7 +53,7 @@ export class LoginComponent implements OnInit {
       });
       location.href = this.returnUrl; 
     },(error) => {
-      console.log("error", error)
+      this.showSpinner = false; 
       this.snackBar.open("登录失败...", "🤢🤢🤢", {
         duration: 5000,
       });

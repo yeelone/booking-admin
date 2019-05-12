@@ -124,6 +124,8 @@ export class UserComponent implements AfterViewInit , OnDestroy {
     });
   }
 
+  
+
   ngOnDestroy() {
     this.userSubscription.unsubscribe();
   }

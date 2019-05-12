@@ -10,15 +10,15 @@
                 <div mat-card-avatar class="example-header-image"></div>
                 <mat-card-title> {{ group.name }} </mat-card-title>
               </mat-card-header>
-              <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" >
+              <img mat-card-image  src="{{baseUrl + '/'  + group.picture}}" >
               <mat-card-actions>
-                <a mat-raised-button href="org/{{group.id}}/users">员工管理</a>
+                <a mat-raised-button href="admin/org/{{group.id}}/users">员工管理</a>
               </mat-card-actions>
             </mat-card>
       </div>
 
       <div class="table-container">
-          <button mat-raised-button color="primary" class="add-btn" (click)="openEditDialog()">创建食堂 <mat-icon>add</mat-icon></button>
+          <button mat-raised-button color="primary" class="add-btn" (click)="openEditDialog(null)">创建食堂 <mat-icon>add</mat-icon></button>
             <div>
               <ul class="list">
                 <li *ngFor="let c of canteens ">

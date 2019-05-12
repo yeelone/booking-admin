@@ -16,7 +16,7 @@ interface DialogData {
   styleUrls: ['./user-dialog.component.scss']
 })
 export class UserDialogComponent implements OnInit {
-  private source: DialogData;
+  source: DialogData;
   loading:boolean = false;
   done:boolean = false;
   returnMsg: string = "";

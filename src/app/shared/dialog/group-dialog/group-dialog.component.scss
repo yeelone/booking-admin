@@ -1,0 +1,24 @@
+.container {
+    margin: auto;
+
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+
+    .uploader{
+        background: yellow;
+        color: black;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 20px;
+    }
+
+    img {
+        height: 200px;
+    }
+
+    .action-bar {
+        margin: auto;
+    }
+
+}
