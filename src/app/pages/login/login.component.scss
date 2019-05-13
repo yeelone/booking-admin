@@ -4,7 +4,9 @@
     justify-content: center;
     height: 100%;
     flex-direction: column;
-
+    background: #212121;
+    border-radius: 10px;
+    box-shadow: 1px 1px 4px #9C27B0;
     .login-card {
         width: 300px;
     }
@@ -15,12 +17,27 @@
 
     #header {
         font-size: 40px;
-        // text-shadow: 2px 0 2px rgba(255, 255, 255, 0.2);
-        color: #7B1FA2;
+        color: white;
+        text-shadow: 3px 7px 11px rgba(255, 255, 255, 0.2);
     }
 
+    .mat-card-header-text {
+        margin: 0 16px;
+        width: 100%;
+    }
+    
     button{
         float: right;
+    }
+
+    .welcome-title {
+        position: absolute;
+        top: 20px;
+        right: 50px;
+        width: 20px;
+        color: white;
+        font-family: cursive;
+        font-size: 20px;
     }
 
 }

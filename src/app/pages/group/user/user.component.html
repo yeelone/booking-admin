@@ -29,7 +29,9 @@
               <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
           </mat-form-field>
           <button mat-raised-button color="primary" (click)="openEditDialog()" *appCanAccess="['CREATE_USER_INFO']">Add new user <mat-icon>add</mat-icon></button>
-          <app-uploader path="newusers" (change)="onUpload($event)" class="uploader" title="批量增加用户" filetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" ></app-uploader> 
+          <span class="uploader-btn">
+            <app-uploader path="newusers" (change)="onUpload($event)" class="uploader" title="批量增加用户" filetype="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" ></app-uploader> 
+          </span>
           <button mat-raised-button color="warn"  (click)="deleteUsers()" [disabled]="disableDelBtn" *appCanAccess="['DELETE_USER_INFO']">
               delete user 
               <div *ngIf="deleteLoading">
@@ -84,5 +86,6 @@
         <mat-paginator [length]="resultsLength" [pageSizeOptions]="[10, 25, 100]"  showFirstLastButtons></mat-paginator>
       </div>
     </div>
+    
     
   </div>

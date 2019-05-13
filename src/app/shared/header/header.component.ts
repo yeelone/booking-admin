@@ -50,7 +50,6 @@ export class HeaderComponent implements OnInit {
   }
 
   logout(): void {
-    console.log(this.username);
     this.apollo.mutate({
       mutation: ServiceGQl.logoutGQL,
       variables: {

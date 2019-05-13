@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
       location.href = this.returnUrl; 
     },(error) => {
       this.showSpinner = false; 
-      this.snackBar.open("登录失败...", "🤢🤢🤢", {
+      this.snackBar.open("登录失败..." +  error , "🤢🤢🤢", {
         duration: 5000,
       });
       
