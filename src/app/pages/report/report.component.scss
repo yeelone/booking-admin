@@ -1,0 +1,38 @@
+.container {
+    table {
+        width: 50%;
+        margin: auto;
+    }
+
+    .picker {
+        margin: auto;
+        width: 50%;
+        text-align: center;
+
+        .picker-btn{
+            width: 250px;
+            background: #f48fb1;
+            margin: 10px auto;
+            border-radius: 10px;
+        }
+
+        input {
+            background: transparent;
+            border: 0px;
+        }
+    }
+
+    .download-container {
+        width: 200px;
+        margin: 20px auto;
+        text-align: center;
+        border-radius: 10px;
+        background: #ff4081;
+        padding: 5px;
+
+        a {
+            text-decoration: none;
+            color: white;
+        }
+    }
+}

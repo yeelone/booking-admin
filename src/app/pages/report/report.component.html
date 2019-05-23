@@ -1,0 +1,42 @@
+
+<div class="container">
+  <div class="picker">
+      <p>请指定日期</p>
+      <div class="picker-btn">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <span>{{year}}/{{month}}</span>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker startView="year" [startAt]="startDate" (monthSelected)="monthSelectedHandler($event,picker)"></mat-datepicker>
+      </div>
+  </div>
+      
+  <table mat-table [dataSource]="source.data" class="mat-elevation-z8">
+
+    <ng-container matColumnDef="用户">
+      <th mat-header-cell *matHeaderCellDef> 用户 </th>
+      <td mat-cell *matCellDef="let element"> {{element.username}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="早餐">
+      <th mat-header-cell *matHeaderCellDef> 早餐 </th>
+      <td mat-cell *matCellDef="let element"> {{element.breakfast}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="午餐">
+      <th mat-header-cell *matHeaderCellDef> 午餐 </th>
+      <td mat-cell *matCellDef="let element"> {{element.lunch}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="晚餐">
+      <th mat-header-cell *matHeaderCellDef> 晚餐 </th>
+      <td mat-cell *matCellDef="let element"> {{element.dinner}} </td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <div *ngIf="source?.file" class="download-container">
+    <a href="{{source?.file}}" target="_blank">下载</a>
+  </div>
+</div>

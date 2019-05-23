@@ -4,8 +4,6 @@
   </div>
 
   <ng-container *ngIf="data">
-      
-
       <mat-card class="card">
           <mat-card-header>
             <mat-card-title> <mat-icon>account_box</mat-icon>  机构信息汇总  </mat-card-title>
@@ -45,7 +43,22 @@
             </mat-card-subtitle>
           </mat-card-header>
       </mat-card>
-      <p >当前登录人数 : {{ data.systemInfo.currentLoginCount}}人</p>
+
+
+      <mat-card class="card">
+        <mat-card-header>
+          <mat-card-title>  <mat-icon>receipt</mat-icon> 系统信息 </mat-card-title>
+          <mat-card-subtitle> 
+            <p >当前登录人数 : {{ data.systemInfo.currentLoginCount}}人</p>
+            <p >CPU : {{ data.systemInfo.cpu}}</p>
+            <p >内存 : {{ data.systemInfo.ram}}</p>
+            <p >磁盘 : {{ data.systemInfo.disk}}</p>
+          </mat-card-subtitle>
+        </mat-card-header>
+      </mat-card>
+
+
+      
   </ng-container>
   
 </div>

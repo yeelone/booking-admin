@@ -55,3 +55,17 @@ export const ticketSellRecord = gql`
         }
     }
 `
+
+export const exportTable = gql`
+    query export($year:String!,$month:String!) {
+        exportBooking(year:$year,month:$month) {
+            data{
+            username
+            breakfast
+            lunch
+            dinner
+            }
+            file
+        }
+        }
+`

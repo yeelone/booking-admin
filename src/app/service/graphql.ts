@@ -3,7 +3,7 @@ import { Query } from 'apollo-angular';
 import { queryUsers,queryUserWithGroup, queryUserWithRole, resetUserPassword, logoutUser, createUsers } from './user.service';
 import { createUser,updateUser,deleteUsers,loginUser } from './user.service';
 import { queryGroups,queryGroupsWithCanteens,queryGroupsWithUsers,updateGroup,createGroup,addUserToGroup,removeUserToGroup,deleteGroups } from './group.service';
-import { queryTickets,queryTicketCount, sellTicket, recyclingTicket, ticketSellRecord  } from './ticket.service';
+import { queryTickets,queryTicketCount, sellTicket, recyclingTicket, ticketSellRecord, exportTable  } from './ticket.service';
 import { queryCanteens,createCanteen,updateCanteen,delCanteens,genQrcode,queryCanteenCount } from "./canteen.service";
 import { queryRoles, queryRoleWithUsers, addUserToRole, remUserToRole, checkUserNotInRole } from './role.service';
 import { createRoleAndPermissionRelationship, queryPermissions } from './permission.service';
@@ -65,4 +65,6 @@ export class ServiceGQl extends Query<Response> {
 
     public static queryConfigGQL = queryConfig;
     public static updateConfigGQL = updateConfig;
+
+    public static exportTableGQL = exportTable; 
 }

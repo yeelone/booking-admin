@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'admin/org', loadChildren: './pages/group/group.module#GroupModule', canActivate: [AuthGuard]},
   { path: 'admin/role', loadChildren: './pages/role/role.module#RoleModule', canActivate: [AuthGuard]},
   { path: 'admin/config', loadChildren: './pages/config/config.module#ConfigModule', canActivate: [AuthGuard]},
+  { path: 'admin/report', loadChildren: './pages/report/report.module#ReportModule', canActivate: [AuthGuard]},
   { path: 'admin/dashboard', loadChildren: './pages/dashboard/dashboard.module#DashboardModule', canActivate: [AuthGuard]},
   { path: 'admin/login', component : LoginComponent },
   { path : '', loadChildren: './pages/dashboard/dashboard.module#DashboardModule',  canActivate: [AuthGuard]}

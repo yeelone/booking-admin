@@ -5,6 +5,9 @@ export const  queryDashboard = gql`
   dashboard{
     systemInfo{
       currentLoginCount
+      cpu
+      disk
+      ram
     }
     
     orgInfo{
