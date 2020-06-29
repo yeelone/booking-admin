@@ -23,7 +23,6 @@ export function createApollo(httpLink: HttpLink) {
       };
     }
   });
-  
 
   return {
     link: auth.concat(http),
