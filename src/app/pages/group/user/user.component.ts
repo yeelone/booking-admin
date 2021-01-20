@@ -61,8 +61,8 @@ export class UserComponent implements AfterViewInit , OnDestroy {
 
   group:Group = new Group();
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(private route:ActivatedRoute,public dialog: MatDialog,private apollo: Apollo) { 
     this.baseUrl = config.baseurl;

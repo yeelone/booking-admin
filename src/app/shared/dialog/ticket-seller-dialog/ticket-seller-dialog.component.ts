@@ -38,7 +38,7 @@ export class TicketSellerDialogComponent implements OnInit {
   source: DialogData;
   countData: CountData;
   recordDataSource: MatTableDataSource<CountData[]>;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
 
   i10n = {
     "sell" : "购买",
@@ -139,7 +139,6 @@ export class TicketSellerDialogComponent implements OnInit {
         break ;
       }
     }
-    console.log("number", number)
     this.done = false ;
     this.loading = true;
     this.apollo.mutate({
@@ -147,13 +146,13 @@ export class TicketSellerDialogComponent implements OnInit {
       variables: {
         userId: this.source.user.id,
         number,
-        type:tType,
+        type: tType,
       },
     }).subscribe((data) => {
       this.loading = false;
       this.done = true ;
       this.queryTickets();
-    },(error) => {
+    }, (error) => {
       this.loading = false;
       this.done = true ;
       this.returnMsg = error;

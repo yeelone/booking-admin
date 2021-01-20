@@ -50,8 +50,8 @@ export class UserSelectorComponent implements  AfterViewInit , OnDestroy {
   @Output()
   onSubmit:EventEmitter<User[]> = new EventEmitter<User[]>();
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor( public dialogRef: MatDialogRef<UserSelectorComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData, public dialog: MatDialog,private apollo: Apollo) { 

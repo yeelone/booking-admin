@@ -39,8 +39,8 @@ export class RoleComponent implements  AfterViewInit , OnDestroy  {
   showUserList:boolean = false;
   showPermissionList:boolean = false; 
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
   constructor(public dialog: MatDialog,private apollo: Apollo) { }
 

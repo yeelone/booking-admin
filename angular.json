@@ -137,5 +137,8 @@
       }
     }
   },
-  "defaultProject": "booking-admin2"
+  "defaultProject": "booking-admin2",
+  "cli": {
+    "analytics": "fe7217f5-d247-4e9c-88e4-cfab5a96ff2a"
+  }
 }
